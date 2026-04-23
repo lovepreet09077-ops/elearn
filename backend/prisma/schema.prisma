@@ -1,0 +1,33 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model User {
+  id               Int         @id @default(autoincrement())
+  email            String      @unique
+  passwordHash     String?
+  firstName        String?
+  lastName         String?
+  role             UserRole    @default(STUDENT)
+  status           UserStatus  @default(ACTIVE)
+  isEmailVerified  Boolean     @default(false)
+  refreshTokenHash String?
+  createdAt        DateTime    @default(now())
+  updatedAt        DateTime    @updatedAt
+}
+
+enum UserRole {
+  STUDENT
+  INSTRUCTOR
+  ADMIN
+}
+
+enum UserStatus {
+  ACTIVE
+  SUSPENDED
+  DEACTIVATED
+}

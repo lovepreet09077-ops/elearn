@@ -1,0 +1,24 @@
+:root {
+  /* Primary Brand Colors */
+  --color-bg-primary: #0F172A;     /* deep navy */
+  --color-primary: #2563EB;        /* electric blue */
+  --color-accent: #22D3EE;         /* cyan */
+  --color-white: #F8FAFC;
+
+  /* Text */
+  --color-text-primary: #F8FAFC;
+  --color-text-secondary: #CBD5E1;
+  --color-text-muted: #94A3B8;
+
+  /* Glass / UI */
+  --color-glass: rgba(255, 255, 255, 0.05);
+  --color-border: rgba(148, 163, 184, 0.2);
+
+  /* Gradients */
+  --gradient-primary: linear-gradient(135deg, #2563EB, #22D3EE);
+
+  /* Shadows */
+  --shadow-primary: 0 20px 40px rgba(37, 99, 235, 0.3);
+  --font-body: var(--font-body);
+  --font-heading: var(--font-heading);
+}

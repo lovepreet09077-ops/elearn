@@ -1,0 +1,357 @@
+.page {
+  min-height: 100vh;
+  padding: 24px;
+  color: var(--color-text-primary);
+}
+
+.wrapper {
+  max-width: 1180px;
+  margin: 0 auto;
+  min-height: calc(100vh - 48px);
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 24px;
+}
+
+.leftPanel {
+  padding: 28px;
+  border-radius: 32px;
+  background:
+    radial-gradient(circle at top left, rgba(34, 211, 238, 0.12), transparent 35%),
+    radial-gradient(circle at bottom right, rgba(37, 99, 235, 0.14), transparent 30%),
+    rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--color-border);
+  backdrop-filter: blur(14px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.logo {
+  width: 58px;
+  height: 58px;
+  border-radius: 20px;
+  background: var(--gradient-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-primary);
+  color: white;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.brandName {
+  margin: 0;
+  font-family: var(--font-heading), sans-serif;
+  font-size: 1.3rem;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.brandTag {
+  margin: 4px 0 0;
+  color: var(--color-text-muted);
+  font-size: 0.92rem;
+}
+
+.leftContent {
+  max-width: 560px;
+  margin-top: 40px;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--color-border);
+  color: var(--color-accent);
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.heading {
+  margin: 22px 0 0;
+  font-family: var(--font-heading), sans-serif;
+  font-size: clamp(2.3rem, 5vw, 4rem);
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+}
+
+.heading span {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.description {
+  margin: 20px 0 0;
+  max-width: 520px;
+  color: var(--color-text-secondary);
+  line-height: 1.8;
+  font-size: 1.02rem;
+}
+
+.featureList {
+  display: grid;
+  gap: 14px;
+  margin-top: 32px;
+}
+
+.featureItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+}
+
+.featureDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: var(--color-accent);
+  box-shadow: 0 0 14px rgba(34, 211, 238, 0.8);
+  flex-shrink: 0;
+}
+
+.formPanel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card {
+  width: 100%;
+  max-width: 540px;
+  padding: 32px;
+  border-radius: 32px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--color-border);
+  backdrop-filter: blur(16px);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.22);
+}
+
+.cardHeader {
+  margin-bottom: 24px;
+}
+
+.sectionLabel {
+  margin: 0 0 10px;
+  color: var(--color-accent);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.cardHeader h2 {
+  margin: 0;
+  font-family: var(--font-heading), sans-serif;
+  font-size: 2rem;
+  line-height: 1.1;
+}
+
+.cardText {
+  margin: 12px 0 0;
+  color: var(--color-text-secondary);
+  line-height: 1.7;
+}
+
+.form {
+  display: grid;
+  gap: 18px;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.field {
+  display: grid;
+  gap: 8px;
+}
+
+.field label {
+  font-size: 0.94rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.field input {
+  width: 100%;
+  min-height: 54px;
+  padding: 0 16px;
+  border-radius: 18px;
+  border: 1px solid var(--color-border);
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--color-text-primary);
+  outline: none;
+  font-size: 0.98rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.field input::placeholder {
+  color: var(--color-text-muted);
+}
+
+.field input:focus {
+  border-color: rgba(34, 211, 238, 0.45);
+  box-shadow: 0 0 0 4px rgba(34, 211, 238, 0.12);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.error,
+.success {
+  padding: 14px 16px;
+  border-radius: 18px;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.error {
+  background: rgba(239, 68, 68, 0.12);
+  border: 1px solid rgba(239, 68, 68, 0.24);
+  color: #fecaca;
+}
+
+.success {
+  background: rgba(34, 197, 94, 0.12);
+  border: 1px solid rgba(34, 197, 94, 0.24);
+  color: #bbf7d0;
+}
+
+.submitButton {
+  width: 100%;
+  min-height: 56px;
+  border: none;
+  border-radius: 999px;
+  background: var(--gradient-primary);
+  color: white;
+  font-family: var(--font-body), sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 18px 36px rgba(37, 99, 235, 0.28);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+}
+
+.submitButton:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 22px 42px rgba(37, 99, 235, 0.34);
+}
+
+.submitButton:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.footerText {
+  margin-top: 22px;
+  text-align: center;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+}
+
+.loginLink {
+  color: var(--color-accent);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.loginLink:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 1024px) {
+  .wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  .leftPanel {
+    min-height: auto;
+  }
+
+  .leftContent {
+    margin-top: 28px;
+  }
+
+  .formPanel {
+    justify-content: stretch;
+  }
+
+  .card {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  .page {
+    padding: 16px;
+  }
+
+  .wrapper {
+    min-height: auto;
+    gap: 16px;
+  }
+
+  .leftPanel,
+  .card {
+    padding: 22px;
+    border-radius: 24px;
+  }
+
+  .row {
+    grid-template-columns: 1fr;
+  }
+
+  .heading {
+    font-size: 2.1rem;
+  }
+
+  .cardHeader h2 {
+    font-size: 1.7rem;
+  }
+
+  .field input {
+    min-height: 50px;
+    border-radius: 16px;
+  }
+
+  .submitButton {
+    min-height: 52px;
+  }
+}
+
+@media (max-width: 380px) {
+  .page {
+    padding: 12px;
+  }
+
+  .leftPanel,
+  .card {
+    padding: 18px;
+  }
+
+  .logo {
+    width: 50px;
+    height: 50px;
+    border-radius: 16px;
+  }
+
+  .heading {
+    font-size: 1.9rem;
+  }
+}

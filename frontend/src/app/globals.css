@@ -1,0 +1,20 @@
+@import "../styles/reset.css";
+@import "../styles/variables.css";
+@import "../styles/utilities.css";
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-body), sans-serif;
+
+  background: var(--color-bg-primary);
+  color: var(--color-text-primary);
+}
+
+/* optional nice background */
+body {
+  background:
+    radial-gradient(circle at top left, rgba(34, 211, 238, 0.1), transparent 30%),
+    radial-gradient(circle at top right, rgba(37, 99, 235, 0.15), transparent 30%),
+    var(--color-bg-primary);
+}
