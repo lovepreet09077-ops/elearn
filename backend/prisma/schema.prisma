@@ -18,6 +18,13 @@ model User {
   refreshTokenHash String?
   createdAt        DateTime    @default(now())
   updatedAt        DateTime    @updatedAt
+
+  coursesCreated   Course[]      @relation("InstructorCourses")
+  enrollments      Enrollment[]
+  progress         Progress[]
+  forumPosts       ForumPost[]
+  forumReplies     ForumReply[]
+  quizResults      QuizResult[]
 }
 
 enum UserRole {
@@ -30,4 +37,123 @@ enum UserStatus {
   ACTIVE
   SUSPENDED
   DEACTIVATED
+}
+
+model Course {
+  id            Int      @id @default(autoincrement())
+  title         String
+  description   String
+  isPublished   Boolean  @default(false)
+  createdAt     DateTime @default(now())
+
+  instructorId  Int
+  instructor    User     @relation("InstructorCourses", fields: [instructorId], references: [id])
+
+  lessons       Lesson[]
+  enrollments   Enrollment[]
+  forumPosts    ForumPost[]
+  quiz          Quiz?
+}
+
+model Lesson {
+  id          Int      @id @default(autoincrement())
+  title       String
+  content     String
+  orderNumber Int
+  videoUrl  String?
+  courseId    Int
+  course      Course   @relation(fields: [courseId], references: [id])
+
+  progress    Progress[]
+}
+
+model Enrollment {
+  id         Int      @id @default(autoincrement())
+  createdAt  DateTime @default(now())
+
+  userId     Int
+  courseId   Int
+
+  user       User     @relation(fields: [userId], references: [id])
+  course     Course   @relation(fields: [courseId], references: [id])
+
+  @@unique([userId, courseId])
+}
+
+model Progress {
+  id          Int      @id @default(autoincrement())
+  completed   Boolean  @default(false)
+  completedAt DateTime?
+
+  userId      Int
+  lessonId    Int
+
+  user        User     @relation(fields: [userId], references: [id])
+  lesson      Lesson   @relation(fields: [lessonId], references: [id])
+
+  @@unique([userId, lessonId])
+}
+
+model ForumPost {
+  id         Int      @id @default(autoincrement())
+  title      String
+  content    String
+  createdAt  DateTime @default(now())
+
+  userId     Int
+  courseId   Int
+
+  user       User     @relation(fields: [userId], references: [id])
+  course     Course   @relation(fields: [courseId], references: [id])
+
+  replies    ForumReply[]
+}
+
+model ForumReply {
+  id         Int      @id @default(autoincrement())
+  content    String
+  createdAt  DateTime @default(now())
+
+  userId     Int
+  postId     Int
+
+  user       User      @relation(fields: [userId], references: [id])
+  post       ForumPost @relation(fields: [postId], references: [id])
+}
+
+model Quiz {
+  id         Int      @id @default(autoincrement())
+  title      String
+
+  courseId   Int      @unique
+  course     Course   @relation(fields: [courseId], references: [id])
+
+  questions  Question[]
+  results    QuizResult[]
+}
+
+model Question {
+  id        Int    @id @default(autoincrement())
+  question  String
+  optionA   String
+  optionB   String
+  optionC   String
+  optionD   String
+  correct   String
+
+  quizId     Int
+  quiz       Quiz   @relation(fields: [quizId], references: [id])
+}
+
+model QuizResult {
+  id         Int      @id @default(autoincrement())
+  score      Int
+  total      Int
+  createdAt  DateTime @default(now())
+
+  userId     Int
+  quizId     Int
+
+  user       User     @relation(fields: [userId], references: [id])
+  quiz       Quiz     @relation(fields: [quizId], references: [id])
 }

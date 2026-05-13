@@ -81,7 +81,7 @@ export default function AdminRegisterPage() {
         lastName: trimmedLastName,
         email: trimmedEmail,
         password: form.password,
-        role: "ADMIN",
+        role: "INSTRUCTOR",
       });
 
       setSuccessMessage("Account created successfully. Redirecting to login...");

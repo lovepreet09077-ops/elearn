@@ -35,7 +35,7 @@ services:
       API_KEY: dev-api-key-123456
       JWT_ACCESS_SECRET: dev-jwt-access-123
       JWT_REFRESH_SECRET: dev-jwt-refresh-123
-      JWT_ACCESS_EXPIRES_IN: 15m
+      JWT_ACCESS_EXPIRES_IN: 60m
       JWT_REFRESH_EXPIRES_IN: 7d
     ports:
       - "4000:4000"
@@ -43,6 +43,7 @@ services:
     volumes:
       - ./backend:/app
       - /app/node_modules
+      - /var/www/uploads:/var/www/uploads
     command: sh -c "npx prisma migrate deploy && npm run dev"
 
   frontend:
