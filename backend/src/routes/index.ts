@@ -5,6 +5,10 @@ import authRoutes from "../modules/auth/auth.routes";
 import courseRoutes from "../modules/course/course.routes";
 import uploadRoutes from "../modules/upload/upload.routes";
 import lessonRoutes from "../modules/lesson/lesson.routes";
+import quizRoutes from "../modules/quiz/quiz.routes";
+import enrollmentRoutes from "../modules/enrollment/enrollment.routes";
+import progressRoutes from "../modules/progress/progress.routes";
+
 const router = Router();
 
 router.get("/health", async (_req, res) => {
@@ -17,6 +21,10 @@ router.get("/health", async (_req, res) => {
 });
 
 
+
+router.use("/progress", progressRoutes);
+router.use("/enrollments", enrollmentRoutes);
+router.use("/quizzes", quizRoutes);
 router.use("/lessons", lessonRoutes);
 router.use("/users", userRoutes);
 router.use("/auth", authRoutes);

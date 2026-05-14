@@ -82,6 +82,7 @@ model Enrollment {
 
 model Progress {
   id          Int      @id @default(autoincrement())
+  progress    Int      @default(0)
   completed   Boolean  @default(false)
   completedAt DateTime?
 
